@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../card/card';
+import {generateCard} from '../../mock/card.js';
 
 const MainPage = (props) => {
-  const {title, avatar, poster} = props;
+  const {title, releaseDate, genre, cardsCount} = props;
+  const cards = new Array(cardsCount).fill().map(generateCard);
 
   return (
     <React.Fragment>
@@ -25,7 +27,7 @@ const MainPage = (props) => {
 
           <div className="user-block">
             <div className="user-block__avatar">
-              <img src={avatar} alt="User avatar" width="63" height="63" />
+              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
             </div>
           </div>
         </header>
@@ -33,14 +35,14 @@ const MainPage = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={poster} alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
               <h2 className="movie-card__title">{title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">Drama</span>
-                <span className="movie-card__year">2014</span>
+                <span className="movie-card__genre">{genre}</span>
+                <span className="movie-card__year">{releaseDate}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -99,14 +101,7 @@ const MainPage = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            <Card posterCard="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" posterAltCard="Fantastic Beasts: The Crimes of Grindelwald" titleCard="Fantastic Beasts: The Crimes of Grindelwald" />
-            <Card posterCard="img/bohemian-rhapsody.jpg" posterAltCard="Bohemian Rhapsody" titleCard="Bohemian Rhapsody" />
-            <Card posterCard="img/macbeth.jpg" posterAltCard="Macbeth" titleCard="Macbeth" />
-            <Card posterCard="img/aviator.jpg" posterAltCard="Aviator" titleCard="Aviator" />
-            <Card posterCard="img/we-need-to-talk-about-kevin.jpg" posterAltCard="We need to talk about Kevin" titleCard="We need to talk about Kevin" />
-            <Card posterCard="img/what-we-do-in-the-shadows.jpg" posterAltCard="What We Do in the Shadows" titleCard="What We Do in the Shadows" />
-            <Card posterCard="img/revenant.jpg" posterAltCard="Revenant" titleCard="Revenant" />
-            <Card posterCard="img/johnny-english.jpg" posterAltCard="Johnny English" titleCard="Johnny English" />
+            {cards.map((card) => <Card key={card.id} titleCard={card.titleCard} posterAltCard={card.posterAltCard} posterCard={card.posterCard}/>)}
           </div>
 
           <div className="catalog__more">
@@ -134,8 +129,9 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   title: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired
+  releaseDate: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
+  cardsCount: PropTypes.number.isRequired,
 };
 
 export default MainPage;

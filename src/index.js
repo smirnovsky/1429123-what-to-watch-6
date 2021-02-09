@@ -4,15 +4,17 @@ import App from './components/app/app';
 
 const Setting = {
   MAIN_FILM_TITLE: `The Grand Budapest Hotel`,
-  AVATAR_URL: `img/avatar.jpg`,
-  POSTER_URL: `img/the-grand-budapest-hotel-poster.jpg`,
+  GENRE: `Comedy`,
+  RELEASE_DATE: 2011,
+  CARDS_COUNT: 20
 };
 
 ReactDOM.render(
     <App
       title={Setting.MAIN_FILM_TITLE}
-      avatar={Setting.AVATAR_URL}
-      poster={Setting.POSTER_URL}
+      genre={Setting.GENRE}
+      releaseDate={Setting.RELEASE_DATE}
+      cardsCount={Setting.CARDS_COUNT}
     />,
     document.querySelector(`#root`)
 );
