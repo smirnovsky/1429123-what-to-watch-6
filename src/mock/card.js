@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid';
 
-const ID_LENGTH = 10;
+const ID_LENGTH = 9;
 
 export const generateCard = () => {
   return {
