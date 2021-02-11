@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
 const Setting = {
-  MAIN_FILM_TITLE: `The Grand Budapest Hotel`,
-  GENRE: `Comedy`,
-  RELEASE_DATE: 2011,
-  CARDS_COUNT: 20
+  CARDS_COUNT: 20,
+  MOVIE_TITLE: `The Grand Budapest Hotel`,
+  MOVIE_GENRE: `Drama`,
+  MOVIE_YEAR: `2014`,
+  IS_LOGIN: false
 };
 
 ReactDOM.render(
     <App
-      title={Setting.MAIN_FILM_TITLE}
-      genre={Setting.GENRE}
-      releaseDate={Setting.RELEASE_DATE}
       cardsCount={Setting.CARDS_COUNT}
+      movieTitle={Setting.MOVIE_TITLE}
+      movieGenre={Setting.MOVIE_GENRE}
+      movieYear={Setting.MOVIE_YEAR}
+      isLogin={Setting.IS_LOGIN}
     />,
     document.querySelector(`#root`)
 );

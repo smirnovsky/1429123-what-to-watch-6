@@ -1,12 +1,10 @@
 import {nanoid} from 'nanoid';
 
-const ID_LENGTH = 9;
+const ID_LENGTH = 5;
 
 export const generateCard = () => {
   return {
     id: nanoid(ID_LENGTH),
-    titleCard: `The Grand Budapest Hotel`,
-    posterAltCard: `The Grand Budapest Hotel`,
-    posterCard: `img/bohemian-rhapsody.jpg`
+    name: `Fantastic Beasts: The Crimes of Grindelwald`
   };
 };
