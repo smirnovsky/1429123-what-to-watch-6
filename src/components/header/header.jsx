@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
-import Breadcrumbs from "../breadcrumbs/breadcrumbs.jsx";
+import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 import UserBlock from "../user-block/user-block";
-import {Link} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 const Header = (props) => {
   const {isLogin, headerTitle, isReview, pageType} = props;
-  const loginClass = (isLogin) ? `movie-card__head` : ``;
-  const titleClass = (headerTitle === ``) ? `none` : `block`;
+  const loginClass = isLogin ? `movie-card__head` : ``;
+  const titleClass = headerTitle === `` ? `none` : `block`;
   let headerClass = ``;
   let isSignInPage = false;
 
@@ -16,7 +16,7 @@ const Header = (props) => {
       headerClass = `user-page__head`;
       isSignInPage = true;
       break;
-    case `user` :
+    case `user`:
       headerClass = `user-page__head`;
       break;
   }
@@ -33,7 +33,12 @@ const Header = (props) => {
 
       <Breadcrumbs isReview={isReview} />
 
-      <h1 className="page-title user-page__title" style={{display: `${titleClass}`}}>{headerTitle}</h1>
+      <h1
+        className="page-title user-page__title"
+        style={{display: `${titleClass}`}}
+      >
+        {headerTitle}
+      </h1>
 
       <UserBlock isLogin={isLogin} isSignInPage={isSignInPage} />
     </header>
